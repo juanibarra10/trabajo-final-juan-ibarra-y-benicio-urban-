@@ -1,0 +1,120 @@
+});
+img {
+    max-width: 180px;
+    max-height: 180px;
+}
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1e1e1e;
+    color: #00d1b2;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00d1b2;
+}
+
+.seccion {
+    padding: 40px 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+h2 {
+    text-align: center;
+    color: #00d1b2;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.productos-grid, .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.productos-grid div, .galeria img {
+    width: calc(100% / 3 - 20px);
+    max-width: 300px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.productos-grid div:hover, .galeria img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+button {
+    background-color: #00d1b2;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00a98f;
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .productos-grid div, .galeria img {
+        width: calc(100% / 2 - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-grid div, .galeria img {
+        width: 100%
