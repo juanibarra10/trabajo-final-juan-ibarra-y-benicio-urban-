@@ -1,0 +1,64 @@
+const productos = ["Smartphone", "Laptop", "Tablet", "Smartwatch"];
+const galeria = ["https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6570/6570303_sd.jpg", "https://th.bing.com/th/id/OIP.TadmJwqW598Fmm1M8SH_JAHaHa?rs=1&pid=ImgDetMain", "https://th.bing.com/th/id/OIP.fxeh7_uYHv1aSthFjQkoKAHaHa?rs=1&pid=ImgDetMain"];
+const formSuscripcion = document.getElementById("formSuscripcion");
+let suscriptor = false;
+const productosGrid = document.querySelector(".productos-grid");
+for (const producto of productos) {
+
+    const productoDiv = document.createElement("div");
+    productoDiv.textContent = producto;
+    productosGrid.appendChild(productoDiv);
+
+}
+
+
+
+const galeriaDiv = document.querySelector(".galeria");
+
+for (const foto of galeria) {
+    const img = document.createElement("img");
+    img.src = foto;
+    galeriaDiv.appendChild(img);
+}
+
+
+
+formSuscripcion.addEventListener("submit", (e) => {
+    e.preventDefault();
+    try {
+        let nombre = document.getElementById("nombre").value;
+        let email = document.getElementById("email").value;
+
+        nombre && email
+            ? suscriptor
+                ? alert("Bienvenido de nuevo, suscriptor")
+                : (() => {
+                      suscriptor = true;
+                      alert("Gracias por suscribirte");
+                  })()
+            : alert("Completa todos los campos.");
+    } catch (error) {
+        console.error("Error en el formulario:", error);
+    }
+});
+
+
+
+setInterval(() => {
+    console.log("¡Oferta del día: 15% de descuento en productos seleccionados!");
+}, 8000);
+
+function cargarProductos(callback) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (pos) => callback(pos.coords),
+            (error) => console.error("Error de geolocalización:", error)
+        );
+    } else {
+        console.error("Geolocalización no soportada.");
+    }
+}
+
+cargarProductos((coords) => {
+    console.log("Ubicación:", coords);
+    console.log("Cargando productos en tu área...")
